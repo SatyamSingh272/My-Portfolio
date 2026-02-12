@@ -75,14 +75,24 @@ const Contact = () => {
                </div>
 
 
-            {/* Button */}
-            <button
-              type="submit"
-              className="ml-auto flex items-center gap-2 bg-indigo-700 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-indigo-800 transition"
-            >
-              Submit
-              <span>➤</span>
-            </button>
+            
+           {/* Button */}
+<button
+  type="submit"
+  className="ml-auto flex items-center gap-3 rounded-xl 
+  bg-gradient-to-r from-purple-600 to-indigo-600 
+  px-2 py-2 text-white font-semibold 
+  shadow-md transition-all duration-300 
+  hover:shadow-[0_0_20px_rgba(124,58,237,0.35)] 
+  hover:scale-[1.03] active:scale-95"
+>
+  <span>Submit</span>
+  <span className="transition-transform duration-300 group-hover:translate-x-1">
+    ➤
+  </span>
+</button>
+
+
 
           </form>
         </div>

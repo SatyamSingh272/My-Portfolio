@@ -41,10 +41,9 @@ const About = () => {
             </p>
 
             <p className="text-black leading-relaxed mb-6 font-semibold">
-              I am a Full-Stack developer based in Mumbai, India. I am MCA postgraduate from TIMSCDR. I am very
-              passionate about improving my coding skills & developing
-              applications & websites. I build WebApps and Websites using MERN
-              Stack.
+             Full-Stack Developer based in Mumbai, India, and MCA Postgraduate from TIMSCDR College.
+            I am passionate about building efficient, scalable, and user-friendly web applications.
+             I specialize in the MERN stack and enjoy turning ideas into functional, real-world digital solutions.
             </p>
 
             <p className="mb-2">

@@ -1,12 +1,15 @@
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+
 const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-16 flex items-center bg-white overflow-hidden"
+      className="relative min-h-screen pt-16 flex items-center bg-blue-50 overflow-hidden"
+       
     >
+    
       
 
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
