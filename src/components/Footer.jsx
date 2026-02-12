@@ -7,8 +7,29 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 64; // navbar height
+      const top = element.offsetTop - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const quickLinks = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
-    <footer className="bg-linear-to-b bg-[#0b0846] text-white pt-10 pb-6">
+    <footer className="bg-[#0b0846] text-white pt-10 pb-6">
       
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
@@ -21,7 +42,7 @@ const Footer = () => {
             Connect with me over socials.
           </p>
           <p className="mt-4 text-gray-300 text-sm">
-            Keep Rising 🚀 
+            Keep Rising 🚀
           </p>
         </div>
 
@@ -29,17 +50,16 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Quick Links</h2>
           <ul className="space-y-3 text-gray-300">
-            {["Home", "About", "Skills", "Projects", "Contact"].map(
-              (item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-2 hover:text-purple-400 cursor-pointer transition"
-                >
-                  <span className="w-2 h-2 bg-white rounded-full"></span>
-                  {item}
-                </li>
-              )
-            )}
+            {quickLinks.map((item) => (
+              <li
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="flex items-center gap-2 cursor-pointer hover:text-purple-400 transition"
+              >
+                <span className="w-2 h-2 bg-white rounded-full" />
+                {item.label}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -60,7 +80,7 @@ const Footer = () => {
 
             <p className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-yellow-400" />
-              Mumbai, India - 400001
+              Mumbai, India - 400068
             </p>
           </div>
 
@@ -69,13 +89,12 @@ const Footer = () => {
             {[
               { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/satyam-singh123/" },
               { icon: <FaGithub />, link: "https://github.com/SatyamSingh272" },
-              
-             
-             
             ].map((item, index) => (
               <a
                 key={index}
                 href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center bg-white text-[#090979] rounded-full hover:bg-purple-700 hover:text-white transition"
               >
                 {item.icon}
