@@ -1,65 +1,71 @@
-
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-
+import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-16 flex items-center bg-blue-50 overflow-hidden"
-       
+      className="relative min-h-screen pt-16 flex items-center bg-gray-100 overflow-hidden"
     >
-    
-      
-
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-16">
 
         {/* LEFT CONTENT */}
-        <div className="flex-1 mr-16 ">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#0a1f44]">
+        <div className="flex-1 text-center md:text-left">
+
+          {/* Small Intro */}
+          <h1 className="text-2xl md:text-3xl text-gray-500">
             Hi There,
           </h1>
 
-          <h2 className="mt-4 mb-6 text-4xl md:text-6xl font-bold text-[#0a1f44] whitespace-nowrap">
-          I'm <span className="text-orange-500">Satyam&nbsp;Singh</span>
+          {/* Name in One Line */}
+          <h2 className="mt-2 text-5xl md:text-6xl font-bold text-[#0a1f44] whitespace-nowrap">
+            I'm <span className="text-orange-500">Satyam Singh</span>
           </h2>
 
-          <p className="mt-6 text-2xl text-red-700 font-semibold">
+          {/* Subtitle */}
+          <p className="mt-6 text-xl md:text-2xl text-orange-500 font-semibold">
             I Am, Full Stack Developer!
           </p>
 
-          {/* Resume */}
-          <a
-            href="/Satyam Resume_Full_Stack.pdf"
-            download
-            className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition"
-          >
-            Download Resume
-          </a>
+          {/* Resume Button with Download Icon */}
+         <a
+  href="/Satyam Resume_Full_Stack.pdf"
+  download
+  className="inline-flex items-center gap-3 mt-8 px-8 py-4
+             bg-[#182c52] text-white text-lg font-semibold 
+             rounded-2xl shadow-md 
+             hover:bg-[#223b6b] transition duration-300"
+>
+  <FaDownload size={18} />
+  Download Resume
+</a>
 
-          {/* Social Icons */}
-          <div className="flex gap-4 mt-8">
+          {/* Social Icons - Same Design */}
+          <div className="flex justify-center md:justify-start gap-6 mt-8">
+
             <a
               href="https://github.com/SatyamSingh272"
               target="_blank"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-orange-400 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300"
             >
-              <FaGithub size={22} />
+              <FaGithub size={20} />
             </a>
 
             <a
               href="https://www.linkedin.com/in/satyam-singh123/"
               target="_blank"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-orange-400 text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300"
             >
-              <FaLinkedin size={22} />
+              <FaLinkedin size={20} />
             </a>
+
           </div>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="flex-1 flex justify-center md:justify-end  ml-16">
-          <div className="w-72 h-72 rounded-full bg-yellow-400 flex items-center justify-center shadow-xl">
+        <div className="flex-1 flex justify-center md:justify-end">
+          <div className="w-72 h-72 md:w-80 md:h-80 rounded-full border-4 border-orange-500 bg-orange-400 flex items-center justify-center shadow-2xl">
             <img
               src="/6294327753029306300.jpg"
               alt="avatar"

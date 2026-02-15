@@ -25,16 +25,13 @@ const categories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-[#f5f7ff]">
+    <section id="skills" className="py-24 bg-[#f6f7fb]">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#0a1f44]">
-            Technical Skills
-          </h2>
-          <div className="w-20 h-1 bg-indigo-600 mx-auto mt-4 rounded-full" />
-        </div>
+        <h2 className="text-4xl font-bold text-center mb-16 text-[#0a1f44]">
+          Technical <span className="text-orange-500">Skills</span>
+        </h2>
 
         {/* Skills Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -43,14 +40,14 @@ const Skills = () => {
             return (
               <div
                 key={category.title}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+                className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
-                    <Icon size={22} />
+                {/* Card Header */}
+                <div className="mb-6">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-orange-100 text-orange-500 mb-4">
+                    <Icon size={24} />
                   </div>
-                  <h3 className="text-lg font-semibold text-[#0a1f44]">
+                  <h3 className="text-xl font-semibold text-[#0a1f44]">
                     {category.title}
                   </h3>
                 </div>
@@ -60,7 +57,7 @@ const Skills = () => {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-4 py-1.5 text-sm rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-600 hover:text-white transition"
+                      className="px-4 py-1.5 text-sm rounded-full bg-orange-50 text-orange-600 font-medium"
                     >
                       {skill}
                     </span>

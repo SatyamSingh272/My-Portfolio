@@ -1,101 +1,68 @@
-import { FaHeadphonesAlt, FaUser, FaEnvelope, FaPhoneAlt, FaComment } from "react-icons/fa";
+import { Send } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="bg-[#eef2ff] py-16 px-6"
-    >
-      {/* Heading */}
-      <h2 className="text-4xl font-bold text-center mb-12 flex items-center justify-center gap-3">
-        <FaHeadphonesAlt />
-        <span>
-          Get In <span className="text-purple-600">Touch</span>
-        </span>
-      </h2>
+    <section id="contact" className="py-24 bg-[#f6f7fb]">
+      <div className="max-w-6xl mx-auto px-6">
 
-      {/* Card */}
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          
-          {/* LEFT IMAGE */}
+        {/* Heading */}
+        <h2 className="text-4xl font-bold text-center mb-16 text-[#0a1f44]">
+          Get In <span className="text-orange-500">Touch</span>
+        </h2>
+
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          {/* Left Image */}
           <div className="flex justify-center">
-            <img
-              src="/contact_image.jpg"   // put image in public folder
-              alt="contact"
-              className="w-full max-w-sm"
-            />
+            <div className="bg-white rounded-2xl shadow-lg p-6">
+              <img
+                src="/contact_image.jpg"
+                alt="Contact"
+                className="w-full max-w-sm"
+              />
+            </div>
           </div>
 
-          {/* RIGHT FORM */}
+          {/* Right Form */}
           <form className="space-y-6">
-            
-            {/* Name */}
-           <div className="flex items-center gap-3 bg-[#eef2ff] px-4 py-3 rounded-lg border 
-                border-gray-300 focus-within:border-purple-700
-                focus-within:ring-2 focus-within:ring-purple-200
-                transition">
-               <FaUser className="text-gray-500 group-focus-within:text-purple-700 transition" />
-                <input
-                 type="text"
-                 placeholder="Name"
-                 className="w-full bg-transparent outline-none"
-                />
-           </div>
 
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full px-5 py-4 rounded-xl border border-gray-300 
+              focus:outline-none focus:border-orange-500"
+            />
 
-            {/* Email */}
-            <div className="flex items-center gap-3 bg-[#eef2ff] px-4 py-3 rounded-lg border 
-                border-gray-300 focus-within:border-purple-700
-                focus-within:ring-2 focus-within:ring-purple-200 transition">
-               <FaEnvelope className="text-gray-500 focus-within:text-purple-700" />
-               <input type="email" placeholder="Email" className="w-full bg-transparent outline-none" />
-            </div>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full px-5 py-4 rounded-xl border border-gray-300 
+              focus:outline-none focus:border-orange-500"
+            />
 
+            <textarea
+              rows="5"
+              placeholder="Your Message"
+              className="w-full px-5 py-4 rounded-xl border border-gray-300 
+              focus:outline-none focus:border-orange-500 resize-none"
+            />
 
-            {/* Phone */}
-           <div className="flex items-center gap-3 bg-[#eef2ff] px-4 py-3 rounded-lg border 
-                border-gray-300 focus-within:border-purple-700
-                focus-within:ring-2 focus-within:ring-purple-200 transition">
-               <FaPhoneAlt className="text-gray-500 focus-within:text-purple-700" />
-               <input type="tel" placeholder="Phone" className="w-full bg-transparent outline-none" />
-           </div>
-
-
-            {/* Message */}
-           <div className="flex gap-3 bg-[#eef2ff] px-4 py-3 rounded-lg border 
-                border-gray-300 focus-within:border-purple-700
-                focus-within:ring-2 focus-within:ring-purple-200 transition">
-              <FaComment className="text-gray-500 mt-1 focus-within:text-purple-700" />
-               <textarea
-                 rows="4"
-                 placeholder="Message"
-                 className="w-full bg-transparent outline-none resize-none"
-                 />
-               </div>
-
-
-            
-           {/* Button */}
-<button
-  type="submit"
-  className="ml-auto flex items-center gap-3 rounded-xl 
-  bg-gradient-to-r from-purple-600 to-indigo-600 
-  px-2 py-2 text-white font-semibold 
-  shadow-md transition-all duration-300 
-  hover:shadow-[0_0_20px_rgba(124,58,237,0.35)] 
-  hover:scale-[1.03] active:scale-95"
->
-  <span>Submit</span>
-  <span className="transition-transform duration-300 group-hover:translate-x-1">
-    ➤
-  </span>
-</button>
-
-
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 
+              bg-orange-500 hover:bg-orange-600 
+              text-white font-semibold 
+              px-8 py-3 rounded-xl 
+              transition"
+            >
+              Submit
+              <Send size={16} />
+            </button>
 
           </form>
         </div>
+
       </div>
     </section>
   );

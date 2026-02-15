@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detect scroll for shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -15,43 +27,43 @@ const Navbar = () => {
         behavior: "smooth",
       });
 
-      setMenuOpen(false); // close mobile menu after click
+      setActive(id);
+      setMenuOpen(false);
     }
   };
 
-  const navItemStyle = `
-    relative cursor-pointer px-2 pb-1 transition-all duration-300
-    text-black
-    hover:text-indigo-600
-    after:absolute after:left-0 after:-bottom-1
-    after:h-[2px] after:w-0
-    after:bg-indigo-600
-    after:transition-all after:duration-300
-    hover:after:w-full
+  const navItemStyle = (id) => `
+    cursor-pointer transition duration-300
+    ${active === id ? "text-orange-500" : "text-gray-700"}
+    hover:text-orange-500
   `;
 
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="h-16 flex justify-between items-center px-8">
+    <nav
+      className={`fixed w-full top-0 z-50 transition duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-white"
+      }`}
+    >
+      <div className="h-16 flex justify-between items-center px-8 max-w-7xl mx-auto">
 
         {/* Logo */}
         <div
           onClick={() => scrollToSection("home")}
-          className="text-3xl font-bold cursor-pointer"
+          className="text-3xl font-bold cursor-pointer text-[#0a1f44]"
         >
           Satyam
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-lg font-medium">
-          <li onClick={() => scrollToSection("home")} className={navItemStyle}>Home</li>
-          <li onClick={() => scrollToSection("about")} className={navItemStyle}>About</li>
-          <li onClick={() => scrollToSection("skills")} className={navItemStyle}>Skills</li>
-          <li onClick={() => scrollToSection("projects")} className={navItemStyle}>Projects</li>
-          <li onClick={() => scrollToSection("contact")} className={navItemStyle}>Contact</li>
+          <li onClick={() => scrollToSection("home")} className={navItemStyle("home")}>Home</li>
+          <li onClick={() => scrollToSection("about")} className={navItemStyle("about")}>About</li>
+          <li onClick={() => scrollToSection("skills")} className={navItemStyle("skills")}>Skills</li>
+          <li onClick={() => scrollToSection("projects")} className={navItemStyle("projects")}>Projects</li>
+          <li onClick={() => scrollToSection("contact")} className={navItemStyle("contact")}>Contact</li>
         </ul>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Button */}
         <button
           className="md:hidden text-3xl"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -60,18 +72,22 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
       <div
         className={`md:hidden bg-white shadow-md overflow-hidden transition-all duration-300 ${
           menuOpen ? "max-h-96 py-4" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col items-center gap-6 text-lg font-medium">
-          <li onClick={() => scrollToSection("home")} className={navItemStyle}>Home</li>
-          <li onClick={() => scrollToSection("about")} className={navItemStyle}>About</li>
-          <li onClick={() => scrollToSection("skills")} className={navItemStyle}>Skills</li>
-          <li onClick={() => scrollToSection("projects")} className={navItemStyle}>Projects</li>
-          <li onClick={() => scrollToSection("contact")} className={navItemStyle}>Contact</li>
+          {["home", "about", "skills", "projects", "contact"].map((item) => (
+            <li
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className={navItemStyle(item)}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
