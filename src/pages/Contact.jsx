@@ -3,7 +3,7 @@ import { Send } from "lucide-react";
 const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-[#f6f7fb]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
 
         {/* Heading */}
         <h2 className="text-4xl font-bold text-center mb-16 text-[#0a1f44]">
@@ -31,21 +31,24 @@ const Contact = () => {
               type="text"
               placeholder="Your Name"
               className="w-full px-5 py-4 rounded-xl border border-gray-300 
-              focus:outline-none focus:border-orange-500"
+              text-gray-800 placeholder-gray-500
+              focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
             />
 
             <input
               type="email"
               placeholder="Your Email"
               className="w-full px-5 py-4 rounded-xl border border-gray-300 
-              focus:outline-none focus:border-orange-500"
+              text-gray-800 placeholder-gray-500
+              focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
             />
 
             <textarea
               rows="5"
               placeholder="Your Message"
               className="w-full px-5 py-4 rounded-xl border border-gray-300 
-              focus:outline-none focus:border-orange-500 resize-none"
+              text-gray-800 placeholder-gray-500
+              focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 resize-none"
             />
 
             <button
@@ -54,7 +57,7 @@ const Contact = () => {
               bg-orange-500 hover:bg-orange-600 
               text-white font-semibold 
               px-8 py-3 rounded-xl 
-              transition"
+              transition duration-300"
             >
               Submit
               <Send size={16} />
