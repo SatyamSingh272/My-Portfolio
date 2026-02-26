@@ -75,25 +75,25 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 ${
-          menuOpen
-            ? "max-h-96 py-6 backdrop-blur-lg bg-white/70 shadow-md border-t border-white/20"
-            : "max-h-0 overflow-hidden"
-        }`}
+     <div
+  className={`md:hidden absolute top-16 left-0 w-full transition-all duration-300 ${
+    menuOpen
+      ? "max-h-96 py-6 backdrop-blur-lg bg-white/70 shadow-lg border-b border-white/20"
+      : "max-h-0 overflow-hidden"
+  }`}
+>
+  <ul className="flex flex-col items-center gap-6 text-lg font-medium">
+    {["home", "about", "skills", "projects", "contact"].map((item) => (
+      <li
+        key={item}
+        onClick={() => scrollToSection(item)}
+        className={navItemStyle(item)}
       >
-        <ul className="flex flex-col items-center gap-6 text-lg font-medium">
-          {["home", "about", "skills", "projects", "contact"].map((item) => (
-            <li
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className={navItemStyle(item)}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </li>
-          ))}
-        </ul>
-      </div>
+        {item.charAt(0).toUpperCase() + item.slice(1)}
+      </li>
+    ))}
+  </ul>
+</div>
     </nav>
   );
 };
