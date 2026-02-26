@@ -6,7 +6,6 @@ const Navbar = () => {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
-  // Detect scroll for shadow
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -34,7 +33,7 @@ const Navbar = () => {
 
   const navItemStyle = (id) => `
     cursor-pointer transition duration-300
-    ${active === id ? "text-orange-500" : "text-gray-700"}
+    ${active === id ? "text-orange-500" : "text-gray-800"}
     hover:text-orange-500
   `;
 
@@ -44,12 +43,12 @@ const Navbar = () => {
         scrolled ? "bg-white shadow-md" : "bg-white"
       }`}
     >
-      <div className="h-16 flex justify-between items-center px-8 max-w-7xl mx-auto">
+      <div className="h-16 flex justify-between items-center px-6 md:px-8 max-w-7xl mx-auto">
 
         {/* Logo */}
         <div
           onClick={() => scrollToSection("home")}
-          className="text-3xl font-bold cursor-pointer text-[#0a1f44]"
+          className="text-2xl md:text-3xl font-bold cursor-pointer text-[#0a1f44]"
         >
           Satyam
         </div>
@@ -65,7 +64,7 @@ const Navbar = () => {
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-3xl"
+          className="md:hidden text-3xl text-gray-800"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <FiX /> : <FiMenu />}
@@ -74,8 +73,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white shadow-md overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 py-4" : "max-h-0"
+        className={`md:hidden bg-white shadow-md transition-all duration-300 ${
+          menuOpen ? "max-h-96 py-6 border-t" : "max-h-0 overflow-hidden"
         }`}
       >
         <ul className="flex flex-col items-center gap-6 text-lg font-medium">
