@@ -6,9 +6,10 @@ const Navbar = () => {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
+  // Detect scroll for blur effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,7 +19,7 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 64;
+      const offset = 70;
       const top = element.offsetTop - offset;
 
       window.scrollTo({
@@ -38,11 +39,13 @@ const Navbar = () => {
   `;
 
   return (
-    <nav
-      className={`fixed w-full top-0 z-50 transition duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-white"
-      }`}
-    >
+   <nav
+  className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+    scrolled
+      ? "backdrop-blur-lg bg-white/70 shadow-md border-b border-white/20"
+      : "backdrop-blur-md bg-white/90"
+  }`}
+>
       <div className="h-16 flex justify-between items-center px-6 md:px-8 max-w-7xl mx-auto">
 
         {/* Logo */}
@@ -73,8 +76,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white shadow-md transition-all duration-300 ${
-          menuOpen ? "max-h-96 py-6 border-t" : "max-h-0 overflow-hidden"
+        className={`md:hidden transition-all duration-300 ${
+          menuOpen
+            ? "max-h-96 py-6 backdrop-blur-lg bg-white/70 shadow-md border-t border-white/20"
+            : "max-h-0 overflow-hidden"
         }`}
       >
         <ul className="flex flex-col items-center gap-6 text-lg font-medium">
